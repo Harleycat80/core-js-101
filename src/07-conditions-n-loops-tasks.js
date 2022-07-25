@@ -487,49 +487,8 @@ function getMatrixProduct(m1, m2) {
  *    [    ,   ,    ]]
  *
  */
-function evaluateTicTacToePosition(position) {
-  const winArray = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6],
-    [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
-  const arr = position.map((item) => {
-    if (item.length < 3) {
-      item.push(null);
-    }
-    return item;
-  }).flat();
-  const res1 = [];
-  const res2 = [];
-  const res3 = [];
-  for (let i = 0; i < arr.length; i += 1) {
-    if (arr[i] === 'X') {
-      res1.push(i);
-      if (winArray.indexOf(res1) !== -1) {
-        return res1;
-      }
-      if (res1.length === 3 && winArray.includes(res1)) {
-        return 'X';
-      }
-    }
-    if (arr[i] === '0') {
-      res2.push(i);
-      if (res2.length === 3 && winArray.includes(res1)) {
-        return '0';
-      }
-    }
-    if (arr[i] === 'underfined' || arr[i] === 'null') {
-      res3.push(arr[i]);
-      if (res3.length === 3) {
-        return 'underfind';
-      }
-    }
-  }
-  if (winArray.includes(res1)) {
-    return 'X';
-  }
-  if (winArray.includes(res2)) {
-    return '0';
-  }
-
-  return undefined;
+function evaluateTicTacToePosition(/* position */) {
+  throw new Error('Not implemented');
 }
 
 module.exports = {
