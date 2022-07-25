@@ -101,7 +101,6 @@ function getArrayOfStrings(arr) {
 function removeFalsyValues(arr) {
   return arr.filter((item) => Boolean(item) !== false);
 }
-
 /**
  * Returns the array of uppercase strings from the specified array
  *
@@ -506,8 +505,8 @@ function getIntervalArray(start, end) {
  *   [ 'a', 'a', 'a', 'a' ]  => [ 'a' ]
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
-function distinct(/* arr */) {
-  throw new Error('Not implemented');
+function distinct(arr) {
+  return [...new Set([...arr])];
 }
 
 /**
@@ -540,8 +539,17 @@ function distinct(/* arr */) {
  *    "Poland" => ["Lodz"]
  *   }
  */
-function group(/* array, keySelector, valueSelector */) {
-  throw new Error('Not implemented');
+function group(array, keySelector, valueSelector) {
+  const map = new Map();
+  array.map((item) => {
+    if (!map.has(keySelector(item))) {
+      map.set(keySelector(item), [valueSelector(item)]);
+    } else {
+      map.get(keySelector(item)).push(valueSelector(item));
+    }
+    return 1;
+  });
+  return map;
 }
 
 
