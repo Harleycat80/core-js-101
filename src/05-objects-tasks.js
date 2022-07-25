@@ -153,6 +153,7 @@ const cssSelectorBuilder = {
     this.str = `${selector1} ${combinator}${selector2}`;
     return this.str;
   },
+
   stringify() {
     const res = this.str;
     this.str = '';
